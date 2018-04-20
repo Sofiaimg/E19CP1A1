@@ -5,5 +5,22 @@
   <%= @user.name %>
 </p>
 
+<% @projects.each do |project| %>
+<tr>
+  <td><%= project.name %></td>
+  <td><%= link_to 'Asignar', allocations_path(project_id: project.id, user_id: @user.id), method: :post %></td>
+  <% end %>
+
+
+  <% @user.projects.each do |project| %>
+  <%= project.name %>
+  <% end %>
+
+
+
+
+
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
